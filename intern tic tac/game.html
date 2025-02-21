@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe Game</title>
+    <style>
+        /* Apply the background gradient to the whole page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #6a11cb, white);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Center the container */
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+            margin-top: 20px;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cell:hover {
+            background-color: #e1e1e1;
+        }
+        /* Result message styling */
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #2575fc;
+        }
+        /* Restart button styling */
+        #restartButton {
+            display: none; /* Hidden initially */
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #restartButton:hover {
+            background-color: #1a5fd7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tic-Tac-Toe Game</h1>
+        <p>Player: <span id="player">X</span></p>
+        <div class="game-board">
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+            <div class="cell" onclick="makeMove(this)"></div>
+        </div>
+        <div id="result"></div> <!-- Result message will be displayed here -->
+        <button id="restartButton" onclick="restartGame()">Restart Game</button> <!-- Restart button below the board -->
+    </div>
+
+    <script>
+        // Retrieve player from localStorage
+        let player = localStorage.getItem("player");
+        document.getElementById("player").textContent = player;
+
+        let currentPlayer = player;
+        let board = ["", "", "", "", "", "", "", "", ""];
+        let gameOver = false;
+
+        function makeMove(cell) {
+            if (gameOver || cell.textContent !== "") return;
+            cell.textContent = currentPlayer;
+            const index = Array.from(cell.parentNode.children).indexOf(cell);
+            board[index] = currentPlayer;
+            checkWinner();
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+        }
+
+        function checkWinner() {
+            const winPatterns = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+
+            for (const pattern of winPatterns) {
+                const [a, b, c] = pattern;
+                if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+                    displayResult(`${board[a]} Wins!`);
+                    gameOver = true;
+                    displayRestartButton();
+                    return;
+                }
+            }
+
+            if (!board.includes("")) {
+                displayResult("It's a draw!");
+                gameOver = true;
+                displayRestartButton();
+            }
+        }
+
+        function displayResult(message) {
+            document.getElementById("result").textContent = message;
+        }
+
+        function displayRestartButton() {
+            document.getElementById("restartButton").style.display = "block";
+        }
+
+        // Restart the game
+        function restartGame() {
+            board = ["", "", "", "", "", "", "", "", ""];
+            currentPlayer = player;
+            gameOver = false;
+            document.getElementById("result").textContent = "";
+            document.getElementById("restartButton").style.display = "none"; // Hide the restart button
+            const cells = document.querySelectorAll(".cell");
+            cells.forEach(cell => {
+                cell.textContent = "";
+            });
+        }
+    </script>
+</body>
+</html>
+
+

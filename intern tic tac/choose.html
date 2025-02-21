@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Player | Tic-Tac-Toe</title>
+    <style>
+        /* Apply the background gradient to the whole page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #6a11cb, white);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Center the container */
+        .container {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #2575fc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #1a5fd7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Player</h1>
+        <button onclick="choosePlayer('X')">Choose X</button>
+        <button onclick="choosePlayer('O')">Choose O</button>
+    </div>
+
+    <script>
+        function choosePlayer(player) {
+            alert("You are Player " + player);
+            localStorage.setItem("player", player);
+            window.location.href = "game.html";  // Navigate to game.html
+        }
+    </script>
+</body>
+</html>
+

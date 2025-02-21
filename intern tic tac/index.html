@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body{
+        background: linear-gradient(to bottom, #6a11cb, white);
+    };
+    .home-container{
+        display: flex;
+    }
+</style>
+<body>
+    <div class="home-container">
+        <div class="home-content" style="margin-right:150px ;" >
+            <h1>Welcome to Tic-Tac-Toe</h1>
+            <button onclick="startGame()">Let's Start the Game</button>
+        </div>
+        <div >
+            <img src="tic_tac-removebg-preview.png" alt="">
+        </div>
+    </div>
+
+    <script>
+        function startGame() {
+            window.location.href = "choose.html";
+        }
+    </script>
+</body>
+</html>
+
