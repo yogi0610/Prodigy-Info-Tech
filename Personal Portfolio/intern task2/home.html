@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio - Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffd6e0, #b8266a);
+            
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffd6e0; /* Light pink background */
+            padding: 15px 50px;
+            box-shadow:0px 2px 10px rgba(0,0,0,0.1);
+        
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .brand {
+            font-size: 22px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .menu {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            display: inline;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: black; /* Thin black font */
+            font-size: 18px;
+            font-weight: 300; /* Thin font */
+            transition: color 0.3s;
+            padding: 8px 15px;
+            gap: 20 px;
+        }
+
+        .menu a:hover {
+            color: #b8266a;
+        }
+
+        /* Content Box Styling */
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding-top: 50px; /* Adjusted for navbar */
+        }
+
+        .content-box {
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .btn-container {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+        .btn-primary {
+            background: #d63384;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b8266a;
+        }
+
+        .btn-secondary {
+            background: #333;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #222;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="brand">Personal Portfolio</div>
+    <ul class="menu">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+    </ul>
+</nav>
+
+<!-- Content Section -->
+<div class="content-container">
+    <div class="content-box">
+        <h1>Welcome to Yogeshwari's Portfolio</h1>
+        <p>Hi, I'm Yogeshwari – A <span class="highlight">UI/UX Designer & Web Developer</span></p>
+        
+        <p>With a passion for clean design and seamless interactions, I focus on creating user-friendly digital solutions.</p>
+        
+        <p>🔹 <span class="highlight">UI/UX Design</span> – Crafting engaging and user-centered interfaces</p>
+        <p>🔹 <span class="highlight">Web Development</span> – Building responsive and interactive websites</p>
+
+        <p>Let’s collaborate to create something innovative! 🚀</p>
+
+        <!-- Buttons Below Content -->
+        <div class="btn-container">
+            <button class="btn btn-primary" onclick="hireMe()">Hire Me</button>
+            <button class="btn btn-secondary" onclick="downloadResume()">Download Resume</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function hireMe() {
+        alert("Thank you for your interest! Let's connect.");
+    }
+
+    function downloadResume() {
+        window.location.href = "Resume YOGESHWARI D.pdf"; // Replace with actual resume file path
+    }
+</script>
+
+</body>
+</html>

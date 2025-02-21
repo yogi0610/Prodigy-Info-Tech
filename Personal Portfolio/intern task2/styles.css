@@ -1,0 +1,147 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;  /* White background */
+    color: #333;
+}
+
+/* Header / Navigation */
+header {
+    background-color: #fddde6; /* Light pink */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #fff;
+    color: #d63384; /* Dark pink */
+}
+
+/* Contact Button */
+.contact-btn {
+    background-color: #d63384;
+    color: white !important;
+    padding: 10px 18px;
+    border-radius: 25px;
+}
+
+.contact-btn:hover {
+    background-color: #b52c6f;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 8%;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.hero h2 {
+    font-size: 36px;
+    color: #d63384;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: #d63384;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #d63384;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #b52c6f;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 12px 25px;
+    color: #d63384;
+    border: 2px solid #d63384;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background-color: #d63384;
+    color: white;
+}
+
+/* Hero Image */
+.hero-image img {
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+`
+
+

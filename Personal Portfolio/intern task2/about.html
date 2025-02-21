@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>About Yogeshwari</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f8d7e0, #d63384);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .about-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 50%;
+        }
+        .about-header {
+            background: #d63384;
+            color: white;
+            padding: 15px;
+            font-size: 1.8em;
+            font-weight: bold;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        .about p {
+            font-size: 1em;
+            margin: 5px 0 15px;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .connect-btn {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .connect-options {
+            display: none;
+            margin-top: 10px;
+        }
+        .connect-options button {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="text-decoration: none"><div class="logo">Personal portfolio</div></a>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="about-container">
+        <div class="about-header">About ME</div>
+        <div class="about">
+            <p>Hello! I'm Yogeshwari, a UI/UX Designer & Web Developer, currently pursuing my UG at National Engineering College, Kovilpatti.</p>
+            <h3 class="bold">My Goal</h3>
+            <p>✅ Develop user-friendly web pages <br>
+               ✅ Create intuitive UI/UX designs <br>
+               ✅ Ensure seamless and responsive web experiences
+            </p>
+            <h3 class="bold">Skills</h3>
+            <p><span class="bold">💻 Web Development:</span> HTML, CSS, JavaScript <br>
+               <span class="bold">🎨 UI/UX Design:</span> Figma, Wireframing, Prototyping <br>
+               <span class="bold">💡 AI Prompting:</span> Optimizing AI tools for better results
+            </p>
+            <button class="connect-btn" onclick="toggleConnectOptions()">Connect</button>
+            <div class="connect-options" id="connectOptions">
+                <button onclick="location.href='mailto:yogiibairava@gmail.com'">Email</button>
+                <button onclick="window.open('https://linkedin.com/in/yogeshwari-d-b89276335', '_blank')">LinkedIn</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleConnectOptions() {
+            var options = document.getElementById("connectOptions");
+            options.style.display = options.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>
