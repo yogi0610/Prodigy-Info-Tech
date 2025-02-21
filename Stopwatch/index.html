@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Stopwatch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, #CB356B, #BD3F32);
+        }
+        img{
+            
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen text-white">
+    <div class="bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-2xl shadow-lg text-center w-96">
+        <div class="flex items-center justify-center">
+            <img width="64" height="64" src="WhatsApp_Image_2025-02-17_at_18.34.55_51e3217e-removebg-preview.png" alt="stopwatch--v2"/>
+        </div>
+        <h1 class="text-3xl font-semibold mb-4"> Stopwatch</h1>
+        <div class="text-4xl font-bold p-4 bg-white bg-opacity-20 rounded-lg shadow-md">
+            <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="milliseconds">00</span>
+        </div>
+        <div class="mt-6 space-x-3">
+            <button id="start" class="px-4 py-2 bg-green-500 rounded-lg shadow hover:bg-green-600">Start</button>
+            <button id="pause" class="px-4 py-2 bg-yellow-500 rounded-lg shadow hover:bg-yellow-600">Pause</button>
+            <button id="reset" class="px-4 py-2 bg-red-500 rounded-lg shadow hover:bg-red-600">Reset</button>
+            <button id="lap" class="px-4 py-2 bg-blue-500 rounded-lg shadow hover:bg-blue-600">Lap</button>
+        </div>
+        <ul id="laps" class="mt-6 space-y-2 text-left text-sm"></ul>
+    </div>
+
+    <script>
+        let minutes = 0, seconds = 0, milliseconds = 0;
+        let timer, running = false;
+
+        const updateDisplay = () => {
+            document.getElementById('minutes').textContent = formatTime(minutes);
+            document.getElementById('seconds').textContent = formatTime(seconds);
+            document.getElementById('milliseconds').textContent = formatTime(milliseconds);
+        };
+
+        const formatTime = value => value < 10 ? `0${value}` : value;
+
+        const updateTime = () => {
+            milliseconds++;
+            if (milliseconds === 100) { milliseconds = 0; seconds++; }
+            if (seconds === 60) { seconds = 0; minutes++; }
+            updateDisplay();
+        };
+
+        document.getElementById('start').addEventListener('click', () => {
+            if (!running) {
+                running = true;
+                timer = setInterval(updateTime, 10);
+            }
+        });
+
+        document.getElementById('pause').addEventListener('click', () => {
+            clearInterval(timer);
+            running = false;
+        });
+
+        document.getElementById('reset').addEventListener('click', () => {
+            clearInterval(timer);
+            running = false;
+            minutes = seconds = milliseconds = 0;
+            updateDisplay();
+            document.getElementById('laps').innerHTML = "";
+        });
+
+        document.getElementById('lap').addEventListener('click', () => {
+            if (running) {
+                const lapTime = `${formatTime(minutes)}:${formatTime(seconds)}:${formatTime(milliseconds)}`;
+                const lapItem = document.createElement('li');
+                lapItem.textContent = `Lap: ${lapTime}`;
+                lapItem.className = "bg-white bg-opacity-20 p-2 rounded shadow-md";
+                document.getElementById('laps').appendChild(lapItem);
+            }
+        });
+    </script>
+</body>
+</html>
