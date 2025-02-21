@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drinks - SY4.5 Star Hotel</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    #dish-details {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      max-width: 400px;
+    }
+    #dish-details img {
+      width: 100%;
+      width: 200px;
+      height: 200px;
+      border-radius: 8px;
+    }
+    #drinks-list li {
+      cursor: pointer;
+      color: darkgreen;
+      text-decoration: underline;
+    }
+    #order-btn {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #order-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="veg.html" class="nav-link">Veg Menu</a></li>
+      <li class="nav-item"><a href="nonveg.html" class="nav-link">Non-Veg Menu</a></li>
+      <li class="nav-item"><a href="drinks.html" class="nav-link">Drinks</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="drinks-menu">
+    <h1>Drinks Menu</h1>
+    <p>Quench your thirst with our variety of refreshing drinks.</p>
+  </header>
+
+  <main>
+    <section class="category-section">
+      <div class="menu-items">
+        <h2>Our Drinks Selection</h2>
+        <ul id="drinks-list">
+          <li onclick="showDishDetails('Mango Lassi', 'Lassi.jpg', 'A delicious, sweet, and creamy mango-based yogurt drink.', '1', '50')">Mango Lassi</li>
+          <li onclick="showDishDetails('Lemonade', 'Lemonade.jpg', 'A refreshing drink made from lemons and sugar.', '1', '30')">Lemonade</li>
+          <li onclick="showDishDetails('Mint Mojito', 'MojitoBliss.jpg', 'A cool, minty beverage perfect for hot days.', '1', '60')">Mint Mojito</li>
+          <li onclick="showDishDetails('Coffee', 'unknown.jpg', 'Freshly brewed coffee to keep you energized.', '1', '40')">Coffee</li>
+          <li onclick="showDishDetails('Soft Drinks', 'drinks.webp', 'Popular fizzy drinks for every occasion.', '1', '25')">Soft Drinks</li>
+        </ul>
+      </div>
+
+      <div id="dish-details"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 SY4.5 Star Hotel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showDishDetails(dishName, imageUrl, description, quantity, rate) {
+      const detailsContainer = document.getElementById('dish-details');
+      const width = 200;
+      const height = 200;
+      detailsContainer.innerHTML = `
+        <h3>${dishName}</h3>
+        <img src="${imageUrl}" alt="${dishName}" >
+        <p>${quantity}</p>
+        <p>${rate}</p>
+        <button class="order-button" onclick="orderDish('${dishName}')">Order Now</button>
+      `;
+    }
+
+    function orderDish() {
+      const dishName = document.getElementById('dish-name').textContent;
+      alert(`You have ordered: ${dishName}`);
+    }
+  </script>
+</body>
+</html>
+
+

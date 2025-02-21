@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veg Menu - SY4.5 Star Hotel</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    ul li {
+      cursor: pointer;
+      color: darkgreen;
+      text-decoration: none;
+    }
+
+    ul li:hover {
+      text-decoration: underline;
+    }
+
+    .nav-menu {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      background-color: transparent;
+    }
+
+    .nav-menu .nav-link {
+      text-decoration: none;
+    }
+
+    #dish-details {
+      margin-top: 20px;
+      padding: 15px;
+      max-width: 400px;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    #dish-details img {
+      max-width: 100%;
+      width: 200px;
+      height: 200px;
+      display: block;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    .order-button {
+      background-color: green;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .order-button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="veg.html" class="nav-link">Veg Menu</a></li>
+      <li class="nav-item"><a href="nonveg.html" class="nav-link">Non-Veg Menu</a></li>
+      <li class="nav-item"><a href="drinks.html" class="nav-link">Drinks</a></li>
+      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="veg-menu">
+    <h1>Veg Menu</h1>
+    <p>Explore a variety of mouthwatering vegetarian dishes.</p>
+  </header>
+
+  <main>
+    <section class="category-section">
+      <div class="menu-items">
+        <h2>Our Veg Specialties</h2>
+        <ul id="dish-list">
+          <li onclick="showDishDetails('Paneer Butter Masala', 'pannernew.jpeg', 'Quantity: 250g', 'Rate: $60')">Paneer Butter Masala</li>
+          <li onclick="showDishDetails('Vegetable Biryani', 'veg briyani.jfif', 'Quantity: 300g', 'Rate: $50')">Vegetable Biryani</li>
+          <li onclick="showDishDetails('Palak Paneer', 'palak paneer sabji.jfif', 'Healthy spinach curry with soft paneer cubes.', 'Quantity: 250g', 'Rate: $45')">Palak Paneer</li>
+          <li onclick="showDishDetails('Dal Tadka', 'Dal tadka.jfif', 'Quantity: 200g', 'Rate: $35')">Dal Tadka</li>
+          <li onclick="showDishDetails('Mixed Vegetable Curry', 'Mixed Vegetable Curry.jfif', 'Quantity: 250g', 'Rate: $40')">Mixed Vegetable Curry</li>
+        </ul>
+      </div>
+      <div id="dish-details"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SY4.5 Star Hotel. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showDishDetails(dishName, imageUrl, description, quantity, rate) {
+      const detailsContainer = document.getElementById('dish-details');
+      const width = 200;
+      const height = 200;
+      detailsContainer.innerHTML = `
+        <h3>${dishName}</h3>
+        <img src="${imageUrl}" alt="${dishName}" >
+        <p>${quantity}</p>
+        <p>${rate}</p>
+        <button class="order-button" onclick="orderDish('${dishName}')">Order Now</button>
+      `;
+    }
+
+    function orderDish(dishName) {
+      alert(`You have ordered: ${dishName}`);
+    }
+  </script>
+</body>
+</html>
