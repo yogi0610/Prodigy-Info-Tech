@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather website</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #location {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            width: 250px;
+            margin: auto;
+            background-color: #f5f5f5;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #location input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #check {
+            width: 95%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #check:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="location">
+            <input type="text" id="country" placeholder="Enter Country">
+            <input type="text" id="city" placeholder="Enter City">
+            <input type="submit" id="check" value="Go">
+        </div>
+        <img src="tempicons/clouds.svg" alt="" id="tempIcon">
+        <div class="flex">
+        <h2 id="weatherCountry">Cityname</h2>
+        <h2 id="temperature">0°<strong>C</strong></h2>
+        <h2 id="weatherDescription">Description</h2>
+        <ul>
+            <div class="features">
+            <li id="feelsLike">Feels Like 0°C</li>
+            <li id="humidity">Humidity 0</li>
+            <li id="longitude">Longitude 0</li>
+            <li id="latitude">Latitude 0</li>
+            </div>
+        </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
